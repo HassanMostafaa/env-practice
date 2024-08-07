@@ -1,10 +1,13 @@
+"use client";
+import { HoverableSpace } from "@/src/components/hoverable-space/HoverableSpace";
 import { SimpleCard } from "@/src/components/simple-card/SimpleCard";
 
 export default function Home() {
   return (
-    <main style={{ minHeight: "100vh" }}>
-      {/* <h1>Components Reps</h1> */}
-      <div style={{ display: "flex" }}>
+    <main style={{ minHeight: "100vh", padding: 40 }}>
+      <div
+        style={{ display: "flex", justifyContent: "space-between", gap: 30 }}
+      >
         <SimpleCard
           title="GLUCOPHAGE"
           text="Each film copated tablet contains Metformin hydrochiorde 500mg eq. to metformin 390mg"
@@ -18,6 +21,7 @@ export default function Home() {
           text="Each film copated tablet contains Metformin hydrochiorde 500mg eq. to metformin 390mg"
         />
       </div>
+      <HoverableSpace />
     </main>
   );
 }
