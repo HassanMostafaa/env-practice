@@ -3,12 +3,11 @@ import styled from "styled-components";
 
 export const SSimpleCard = styled.div`
   padding: 20px;
-  margin: 20px auto;
+  margin: 20px 0;
   background-color: rgb(var(--background-start-rgb));
   box-shadow: 0px 0px 25px #00000020;
   border-right: 6px solid teal;
   border-bottom: 6px solid teal;
-  /* width: 100%; */
   color: rgb(var(--foreground-rgb));
   z-index: 2;
 `;
@@ -25,4 +24,5 @@ export const SSimpleCardText = styled.pre`
   text-align: justify;
   font-size: 13px;
   font-family: Arial, Helvetica, sans-serif;
+  white-space: break-spaces;
 `;
