@@ -3,12 +3,12 @@ import styled from "styled-components";
 
 export const SSimpleCard = styled.div`
   padding: 20px;
-  margin: 20px;
+  margin: 20px auto;
   background-color: rgb(var(--background-start-rgb));
   box-shadow: 0px 0px 25px #00000020;
   border-right: 6px solid teal;
   border-bottom: 6px solid teal;
-  width: 100%;
+  /* width: 100%; */
   color: rgb(var(--foreground-rgb));
   z-index: 2;
 `;
@@ -20,8 +20,9 @@ export const SSimpleCardTitle = styled.div`
   font-weight: bold;
   margin-bottom: 10px;
 `;
-export const SSimpleCardText = styled.div`
+export const SSimpleCardText = styled.pre`
   color: rgb(var(--foreground-rgb));
   text-align: justify;
-  font-size: 14px;
+  font-size: 13px;
+  font-family: Arial, Helvetica, sans-serif;
 `;

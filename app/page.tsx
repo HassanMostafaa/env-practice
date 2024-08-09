@@ -7,11 +7,18 @@ export default function Home() {
     <main style={{ minHeight: "100vh" }}>
       <HoverableSpace>
         <div
-          style={{ display: "flex", justifyContent: "space-between", gap: 30 }}
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            gap: 30,
+            flexWrap: "wrap",
+            alignItems: "stretch",
+            padding: 15,
+          }}
         >
           <SimpleCard
             title="GLUCOPHAGE"
-            text="Each film copated tablet contains Metformin hydrochiorde 500mg eq. to metformin 390mg"
+            text={`Each film copated tablet contains Metformin hydrochiorde 500mg eq. to metformin 390mg`}
           />
           <SimpleCard
             title="GLUCOPHAGE"
