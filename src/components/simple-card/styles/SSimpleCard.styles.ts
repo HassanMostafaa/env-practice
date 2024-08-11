@@ -23,6 +23,6 @@ export const SSimpleCardText = styled.pre`
   color: rgb(var(--foreground-rgb));
   text-align: justify;
   font-size: 13px;
-  font-family: Arial, Helvetica, sans-serif;
+  /* font-family: Arial, Helvetica, sans-serif; */
   white-space: break-spaces;
 `;
