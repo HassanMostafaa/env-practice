@@ -10,10 +10,7 @@ interface ISimpleCardProps {
   text: string;
 }
 
-export const SimpleCard: FunctionComponent<ISimpleCardProps> = ({
-  title,
-  text,
-}) => (
+export const SimpleCard = ({ title, text }: ISimpleCardProps) => (
   <SSimpleCard>
     {title && <SSimpleCardTitle>{title}</SSimpleCardTitle>}
     {text && <SSimpleCardText>{text}</SSimpleCardText>}
