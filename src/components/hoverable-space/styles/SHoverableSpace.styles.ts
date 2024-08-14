@@ -54,7 +54,7 @@ export const SHoverableSpaceTile = styled.div<{ $pickedColor: string }>`
     position: absolute;
     content: "+";
     font-size: 28px;
-    top: -20px;
+    top: -17px;
     left: -10px;
     color: rgb(var(--primary-glow));
   }
