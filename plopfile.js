@@ -1,4 +1,11 @@
 module.exports = function (plop) {
+  var files = {
+    mainComponent: "plop-templates/main-component.js",
+    styledComponent: "plop-templates/styled-component.js",
+    storybookStory: "plop-templates/storybook-story.js",
+    cssSnippet: "plop-templates/css.js",
+    indexFile: "plop-templates/index-file.js",
+  };
   plop.setGenerator("fc", {
     description: "Function Component",
     prompts: [
@@ -18,8 +25,31 @@ module.exports = function (plop) {
       {
         type: "add",
         path: "src/components/{{kebabCase name}}/index.ts",
-        templateFile: "plop-templates/index-file.js",
+        templateFile: files.indexFile,
       },
-    ], // array of actions
+      {
+        type: "add",
+        path: "src/components/{{kebabCase name}}/{{pascalCase name}}.tsx",
+        templateFile: files.mainComponent,
+      },
+      {
+        type: "add",
+        path: "src/components/{{kebabCase name}}/styles/S{{pascalCase name}}.tsx",
+        templateFile: files.styledComponent,
+      },
+      {
+        type: "add",
+        path: "src/components/{{kebabCase name}}/styles/CSS{{pascalCase name}}{{pascalCase suffix}}.tsx",
+        templateFile: files.cssSnippet,
+      },
+      {
+        type: "add",
+        path: "src/components/{{kebabCase name}}/{{pascalCase name}}.stories.tsx",
+        templateFile: files.storybookStory,
+      },
+      {
+        type: "Usage:",
+      },
+    ],
   });
 };
