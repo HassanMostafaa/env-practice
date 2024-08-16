@@ -1,52 +1,32 @@
-import React from "react";
-import { {{ properCase name }} } from './{{ properCase name }}';
+import { type Meta, type StoryObj } from "@storybook/react";
+import { type FunctionComponent } from "react";
 
-export default {
-  title: `Components/{{ properCase name }}`,
-  component: {{ properCase name }},
+import { {{pascalCase name}} } from "./index";
+import { I{{pascalCase name}} } from "./{{pascalCase name}}";
+
+const Template: FunctionComponent<I{{pascalCase name}}> = (args) => (<{{pascalCase name}} {...args}/>);
+
+const meta: Meta = {
   argTypes: {
-    boolean: {
-      description: "An example boolean argument type",
-      control: { type: "boolean" },
-      table: {
-        defaultValue: {
-          summary: true,
-        },
-      },
+    
+  },
+  component: Template,
+  parameters: {
+    design: {
+      type: "figma",
+      url: "https://www.figma.com/file/...",
     },
-    text: {
-      description: "An example text argument type",
-      control: { type: "text" },
-      table: {
-        defaultValue: {
-          summary: "Hello World",
-        },
-      },
-    },
-    select: {
-      description: "An example select argument type",
-      options: ["option1", "option2", "option3"],
-      control: { type: "select" },
-      table: {
-        defaultValue: {
-          summary: "option2",
-        },
-      },
-    },
+  },
+  title: "Atoms/{{pascalCase name}}",
+};
+
+export default meta;
+
+type Story = StoryObj<typeof {{pascalCase name}}>;
+
+export const Default: Story = {
+  args: {
+   
   },
 };
 
-const {{properCase name}}Demo: React.FC<{ boolean, text, select }> = ({ boolean, text, select }) => (
-    <{{properCase name}}>
-      <div>boolean value {"=>"} {boolean.toString()}</div>
-      <div>text value {"=>"} {text}</div>
-      <div>select value {"=>"} {select}</div>
-    </{{properCase name}}>
-);
-
-export const Default: any = {{properCase name}}Demo.bind({});
-Default.args = {
-  boolean: true,
-  text: 'Hello World',
-  select: 'option2',
-};

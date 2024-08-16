@@ -2,11 +2,13 @@ module.exports = function (plop) {
   plop.addHelper("upperCase", function (text) {
     return text.toUpperCase();
   });
-  var pascalCase = (s) =>
+
+  const pascalCase = (s) =>
     s.replace(/\w+/g, function (w) {
       return w[0].toUpperCase() + w.slice(1);
     });
-  var files = {
+
+  const files = {
     mainComponent: "plop-templates/main-component.js",
     styledComponent: "plop-templates/styled-component.js",
     storybookStory: "plop-templates/storybook-story.js",
@@ -14,43 +16,43 @@ module.exports = function (plop) {
     indexFile: "plop-templates/index-file.js",
   };
 
-  var createIndexFile = {
+  const createIndexFile = {
     type: "add",
     path: "src/components/{{kebabCase name}}/index.ts",
     templateFile: files.indexFile,
   };
 
-  var createFunctionComponent = {
+  const createFunctionComponent = {
     type: "add",
     path: "src/components/{{kebabCase name}}/{{pascalCase name}}.tsx",
     templateFile: files.mainComponent,
   };
 
-  var createStyledComp = {
-    type: "add",
-    path: "src/components/{{kebabCase name}}/styles/S{{pascalCase name}}{{pascalCase suffix}}.tsx",
-    templateFile: files.styledComponent,
-  };
-
-  var createStyle = {
+  const createStyle = {
     type: "add",
     path: "src/components/{{kebabCase name}}/styles/S{{pascalCase name}}.tsx",
     templateFile: files.styledComponent,
   };
 
-  var createCssSnippet = {
+  const createStyledComp = {
+    type: "add",
+    path: "src/components/{{kebabCase name}}/styles/S{{pascalCase name}}{{pascalCase suffix}}.tsx",
+    templateFile: files.styledComponent,
+  };
+
+  const createCssSnippet = {
     type: "add",
     path: "src/components/{{kebabCase name}}/styles/CSS{{pascalCase name}}{{pascalCase suffix}}.tsx",
     templateFile: files.cssSnippet,
   };
 
-  var createStory = {
+  const createStory = {
     type: "add",
     path: "src/components/{{kebabCase name}}/{{pascalCase name}}.stories.tsx",
     templateFile: files.storybookStory,
   };
 
-  plop.setActionType("Usage:", function (answers, config, plop) {
+  plop.setActionType("Usage:", function (answers) {
     const { name, suffix } = answers;
     if (name && suffix) {
       return `Usage: 
@@ -67,8 +69,7 @@ module.exports = function (plop) {
     return ``;
   });
 
-  /* Input Options */
-  var getComponentName = {
+  const getComponentName = {
     type: "input",
     name: "name",
     message: "What is the component name?",
@@ -80,7 +81,7 @@ module.exports = function (plop) {
     },
   };
 
-  var getStyleSuffix = {
+  const getStyleSuffix = {
     type: "input",
     name: "suffix",
     message: "What is the styled component suffix?",
@@ -92,91 +93,66 @@ module.exports = function (plop) {
     },
   };
 
-  /* Generators */
+  const args = process.argv.slice(2); // Grab the arguments passed
+
   plop.setGenerator("fc", {
     description: "Function Component",
-    prompts: [getComponentName],
-    actions: [
-      createIndexFile,
-      createFunctionComponent,
-      createStyle,
-      createStory,
-      {
-        type: "Usage:",
-      },
-    ],
+    prompts: function () {
+      if (args[1]) {
+        return []; // Skip prompts if name is provided
+      }
+      return [getComponentName];
+    },
+    actions: function (data) {
+      if (args[1]) {
+        data.name = args[1];
+      }
+      return [
+        createIndexFile,
+        createFunctionComponent,
+        createStyle,
+        createStory,
+        {
+          type: "Usage:",
+        },
+      ];
+    },
   });
 
   plop.setGenerator("s", {
     description: "Styled Component",
-    prompts: [getComponentName, getStyleSuffix],
-    actions: [
-      createStyledComp,
-      {
-        type: "Usage:",
-      },
-    ],
+    prompts: function () {
+      if (args[1]) {
+        return [getStyleSuffix]; // Skip name prompt but ask for suffix
+      }
+      return [getComponentName, getStyleSuffix];
+    },
+    actions: function (data) {
+      if (args[1]) {
+        data.name = args[1];
+      }
+      return [
+        createStyledComp,
+        {
+          type: "Usage:",
+        },
+      ];
+    },
   });
 
   plop.setGenerator("css", {
     description: "Css Snippet",
-    prompts: [getComponentName, getStyleSuffix],
-    actions: [createCssSnippet],
+    prompts: function () {
+      if (args[1]) {
+        return [getStyleSuffix]; // Skip name prompt but ask for suffix
+      }
+      return [getComponentName, getStyleSuffix];
+    },
+    actions: function (data) {
+      if (args[1]) {
+        data.name = args[1];
+      }
+      return [createCssSnippet];
+    },
   });
 };
-
-// module.exports = function (plop) {
-//   var files = {
-//     mainComponent: "./plop-templates/main-component.js",
-//     styledComponent: "./plop-templates/styled-component.js",
-//     storybookStory: "./plop-templates/storybook-story.js",
-//     cssSnippet: "./plop-templates/css.js",
-//     indexFile: "./plop-templates/index-file.js",
-//   };
-//   plop.setGenerator("fc", {
-//     description: "Function Component",
-//     prompts: [
-//       {
-//         type: "input",
-//         name: "name",
-//         message: "What is the component name?",
-//         validate: function (value) {
-//           if (/.+/.test(value)) {
-//             return true;
-//           }
-//           return "name is required";
-//         },
-//       },
-//     ],
-//     actions: [
-//       {
-//         type: "add",
-//         path: "src/components/{{kebabCase name}}/index.ts",
-//         templateFile: files.indexFile,
-//       },
-//       {
-//         type: "add",
-//         path: "src/components/{{kebabCase name}}/{{pascalCase name}}.tsx",
-//         templateFile: files.mainComponent,
-//       },
-//       {
-//         type: "add",
-//         path: "src/components/{{kebabCase name}}/styles/S{{pascalCase name}}.tsx",
-//         templateFile: files.styledComponent,
-//       },
-//       {
-//         type: "add",
-//         path: "src/components/{{kebabCase name}}/styles/CSS{{pascalCase name}}{{pascalCase suffix}}.tsx",
-//         templateFile: files.cssSnippet,
-//       },
-//       {
-//         type: "add",
-//         path: "src/components/{{kebabCase name}}/{{pascalCase name}}.stories.tsx",
-//         templateFile: files.storybookStory,
-//       },
-//       {
-//         type: "Usage:",
-//       },
-//     ],
-//   });
-// };
