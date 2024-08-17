@@ -12,6 +12,10 @@
     "plop": "plop"
   },
   "dependencies": {
+    "@fontsource/roboto": "^5.0.14",
+    "@mui/icons-material": "^5.16.7",
+    "@mui/material": "^5.16.7",
+    "@mui/styled-engine-sc": "^6.0.0-alpha.18",
     "next": "14.2.5",
     "react": "^18",
     "react-dom": "^18",
