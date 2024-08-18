@@ -18,7 +18,7 @@ export const SimpleButton: FunctionComponent<ISimpleButton> = ({
   icon,
 }) => {
   return (
-    <SSimpleButton onClick={onClick} disabled={disabled}>
+    <SSimpleButton disabled={disabled}>
       {icon && icon} {children}
     </SSimpleButton>
   );
