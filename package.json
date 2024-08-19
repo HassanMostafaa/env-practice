@@ -9,13 +9,15 @@
     "lint": "next lint",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "plop": "plop"
+    "plop": "plop",
+    "json-server": "json-server --watch ./json-server-db/db.json --port 3001"
   },
   "dependencies": {
     "@fontsource/roboto": "^5.0.14",
     "@mui/icons-material": "^5.16.7",
     "@mui/material": "^5.16.7",
     "@mui/styled-engine-sc": "^6.0.0-alpha.18",
+    "json-server": "^1.0.0-beta.1",
     "next": "14.2.5",
     "react": "^18",
     "react-dom": "^18",

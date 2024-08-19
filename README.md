@@ -34,3 +34,12 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+---
+
+THIS IS AN ENV TO PRACTICE BASE CODE PROJECT TO BE
+TS + plop + storybook + json-server + server-actions
+
+NEXT =>
+start with NAV component and put user info in it and to be sharable create Zustand store and get the infor from there
+and look for a way to optimize fetching data and create loading state.... search for React-Query

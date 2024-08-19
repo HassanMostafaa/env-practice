@@ -1,0 +1,21 @@
+export interface IGenUser {
+  id: number | string;
+  name: string;
+  email: string;
+  posts: Post[]; // Array of posts linked to this user
+}
+
+export interface IGenPost {
+  id: number;
+  userId: number; // Foreign key to User
+  title: string;
+  content: string;
+  comments: Comment[]; // Array of comments linked to this post
+}
+
+export interface IGenComment {
+  id: number;
+  postId: number; // Foreign key to Post
+  author: string;
+  text: string;
+}
