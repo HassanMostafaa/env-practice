@@ -9,13 +9,10 @@ export async function getcurrentUser() {
   );
 
   if (!res.ok) throw new Error("Failed to fetch users");
-
   const users: IGenUser[] = await res.json();
-
   const currentUser = users.find(
     (user: IGenUser) => user.id === JSON.stringify(currentUserId)
   );
   if (!currentUser) throw new Error("Failed to find current user");
-
   return currentUser;
 }

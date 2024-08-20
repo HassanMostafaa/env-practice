@@ -6,7 +6,7 @@ export interface IGenUser {
 }
 
 export interface IGenPost {
-  id: number;
+  id: number | string;
   userId: number; // Foreign key to User
   title: string;
   content: string;
@@ -14,7 +14,7 @@ export interface IGenPost {
 }
 
 export interface IGenComment {
-  id: number;
+  id: number | string;
   postId: number; // Foreign key to Post
   author: string;
   text: string;

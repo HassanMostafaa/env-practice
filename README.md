@@ -41,5 +41,8 @@ THIS IS AN ENV TO PRACTICE BASE CODE PROJECT TO BE
 TS + plop + storybook + json-server + server-actions
 
 NEXT =>
-start with NAV component and put user info in it and to be sharable create Zustand store and get the infor from there
-and look for a way to optimize fetching data and create loading state.... search for React-Query
+
+- start with NAV component and put user info in it
+- to be sharable create Zustand store and get the infor from there (get,set,update,delete)
+- look for a way to optimize fetching data and create loading state.... search for React-Query
+- create Rootlayout to add `Nav.tsx` to it
