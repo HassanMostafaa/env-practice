@@ -45,6 +45,7 @@
     "eslint-plugin-storybook": "^0.8.0",
     "plop": "^4.0.1",
     "storybook": "^8.2.8",
-    "typescript": "^5"
+    "typescript": "^5",
+    "zukeeper": "^1.0.2"
   }
 }

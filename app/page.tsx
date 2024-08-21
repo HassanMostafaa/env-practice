@@ -1,41 +1,16 @@
-// import { HoverableSpace } from "@/src/components/hoverable-space/HoverableSpace";
-import { SimpleCard } from "@/src/components/simple-card/SimpleCard";
 import { getcurrentUser } from "./actions";
 import { Container } from "@/src/base-components/container";
+import { LayoutComp } from "@/src/components/layout-comp";
+import { Home } from "@/src/pages/home";
 
-export default async function Home() {
+export default async function NextjsPage() {
   const currentUser = await getcurrentUser();
 
   return (
-    <main style={{ minHeight: "100vh" }}>
+    <LayoutComp>
       <Container>
-        <SimpleCard title={currentUser.name} text={currentUser.email} />
+        <Home currentUser={currentUser} />
       </Container>
-      {/* <HoverableSpace /> hoverable needs to be called in a client comp */}
-      {/* 
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          gap: 30,
-          flexWrap: "wrap",
-          alignItems: "stretch",
-          padding: 15,
-        }}
-      >
-        <SimpleCard
-          title="GLUCOPHAGE"
-          text={`Each film copated tablet contains Metformin hydrochiorde 500mg eq. to metformin 390mg`}
-        />
-        <SimpleCard
-          title="GLUCOPHAGE"
-          text="Each film copated tablet contains Metformin hydrochiorde 500mg eq. to metformin 390mg"
-        />
-        <SimpleCard
-          title="GLUCOPHAGE"
-          text="Each film copated tablet contains Metformin hydrochiorde 500mg eq. to metformin 390mg"
-        />
-      </div> */}
-    </main>
+    </LayoutComp>
   );
 }

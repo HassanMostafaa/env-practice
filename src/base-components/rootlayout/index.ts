@@ -1,1 +1,0 @@
-export { Rootlayout } from "./Rootlayout";

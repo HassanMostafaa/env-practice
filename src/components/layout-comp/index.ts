@@ -1,0 +1,1 @@
+export { LayoutComp } from "./LayoutComp";

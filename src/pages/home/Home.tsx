@@ -1,0 +1,43 @@
+"use client";
+import React, { useEffect, type FunctionComponent } from "react";
+import { SHome } from "./styles/SHome";
+import { IGenUser } from "@/json-server-db/types";
+import { SimpleCard } from "@/src/components/simple-card/SimpleCard";
+import { useCurrentUser } from "@/src/store/useCurrentUser";
+
+export interface IHome {
+  currentUser: IGenUser | null;
+}
+
+export const Home: FunctionComponent<IHome> = ({ currentUser }) => {
+  const {
+    setCurrentUser,
+    currentUser: currentUserState,
+    deleteCurrentUser,
+  } = useCurrentUser();
+
+  useEffect(() => {
+    if (currentUser) {
+      setCurrentUser(currentUser);
+    } else {
+      deleteCurrentUser();
+    }
+  }, [currentUser, setCurrentUser, deleteCurrentUser]);
+
+  const logout = () => {
+    deleteCurrentUser();
+  };
+
+  return (
+    <SHome>
+      {!currentUserState && "Welcome Guest"}
+      {currentUserState && (
+        <SimpleCard
+          title={currentUserState.name}
+          text={currentUserState.email}
+        />
+      )}
+      {currentUserState && <button onClick={logout}>Logout</button>}
+    </SHome>
+  );
+};

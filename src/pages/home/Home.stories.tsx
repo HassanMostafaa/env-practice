@@ -1,10 +1,10 @@
 import { type Meta, type StoryObj } from "@storybook/react";
 import { type FunctionComponent } from "react";
 
-import { Rootlayout } from "./index";
-import { IRootlayout } from "./Rootlayout";
+import { Home } from "./index";
+import { IHome } from "./Home";
 
-const Template: FunctionComponent<IRootlayout> = (args) => (<Rootlayout {...args}/>);
+const Template: FunctionComponent<IHome> = (args) => (<Home {...args}/>);
 
 const meta: Meta = {
   argTypes: {
@@ -17,12 +17,12 @@ const meta: Meta = {
       url: "https://www.figma.com/file/...",
     },
   },
-  title: "Atoms/Rootlayout",
+  title: "Atoms/Home",
 };
 
 export default meta;
 
-type Story = StoryObj<typeof Rootlayout>;
+type Story = StoryObj<typeof Home>;
 
 export const Default: Story = {
   args: {

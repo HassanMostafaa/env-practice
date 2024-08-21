@@ -11,7 +11,7 @@ interface CurrentUserState {
 
 export const useCurrentUser = create<CurrentUserState>((set, get) => ({
   currentUser: null,
-  setCurrentUser: (user) => set({ currentUser: user }),
+  setCurrentUser: (currentUser) => set({ currentUser }),
   editCurrentUser: (updatedFields) => {
     const currentUser = get().currentUser;
     if (currentUser) {
@@ -21,3 +21,9 @@ export const useCurrentUser = create<CurrentUserState>((set, get) => ({
   deleteCurrentUser: () => set({ currentUser: null }),
   getCurrentUser: () => get().currentUser,
 }));
+
+// if (process.env.NODE_ENV === "dev") {
+//   mountStoreDevtool("Store1", useStore1);
+
+//   mountStoreDevtool("Store2", useStore2);
+// }
