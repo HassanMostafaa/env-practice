@@ -1,4 +1,5 @@
 import { IGenUser } from "@/json-server-db/types";
+import { mountStoreDevtool } from "simple-zustand-devtools";
 import { create } from "zustand";
 
 interface CurrentUserState {
@@ -22,8 +23,7 @@ export const useCurrentUser = create<CurrentUserState>((set, get) => ({
   getCurrentUser: () => get().currentUser,
 }));
 
-// if (process.env.NODE_ENV === "dev") {
-//   mountStoreDevtool("Store1", useStore1);
-
-//   mountStoreDevtool("Store2", useStore2);
-// }
+// DEVTOOL INSPECTION!
+if (process.env.NODE_ENV === "development") {
+  mountStoreDevtool("user store", useCurrentUser);
+}

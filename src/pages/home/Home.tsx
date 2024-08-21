@@ -4,6 +4,7 @@ import { SHome } from "./styles/SHome";
 import { IGenUser } from "@/json-server-db/types";
 import { SimpleCard } from "@/src/components/simple-card/SimpleCard";
 import { useCurrentUser } from "@/src/store/useCurrentUser";
+import { Counter } from "@/src/store/store";
 
 export interface IHome {
   currentUser: IGenUser | null;
