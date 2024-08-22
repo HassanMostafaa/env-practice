@@ -46,3 +46,6 @@ NEXT =>
 - to be sharable create Zustand store and get the infor from there (get,set,update,delete)
 - look for a way to optimize fetching data and create loading state.... search for React-Query
 - create Rootlayout to add `Nav.tsx` to it
+
+
+NULL;
