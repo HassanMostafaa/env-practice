@@ -12,6 +12,6 @@ interface ISimpleCardProps {
 export const SimpleCard = ({ title, text }: ISimpleCardProps) => (
   <SSimpleCard>
     {title && <SSimpleCardTitle>{title}</SSimpleCardTitle>}
-    {text && <SSimpleCardText>{text}</SSimpleCardText>}
+    {text && text.length > 0 && <SSimpleCardText>{text}</SSimpleCardText>}
   </SSimpleCard>
 );

@@ -1,4 +1,4 @@
-import { IGenUser } from "@/json-server-db/types";
+import { IGenUser } from "@/json-server-db/db-types";
 import { mountStoreDevtool } from "simple-zustand-devtools";
 import { create } from "zustand";
 

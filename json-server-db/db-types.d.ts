@@ -19,3 +19,8 @@ export interface IGenComment {
   author: string;
   text: string;
 }
+
+declare module "*.module.scss" {
+  const classes: { [key: string]: string };
+  export default classes;
+}

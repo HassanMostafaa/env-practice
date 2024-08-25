@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, type FunctionComponent } from "react";
 import { SHome } from "./styles/SHome";
-import { IGenUser } from "@/json-server-db/types";
+import { IGenUser } from "@/json-server-db/db-types";
 import { SimpleCard } from "@/src/components/simple-card/SimpleCard";
 import { useCurrentUser } from "@/src/store/useCurrentUser";
 import { Counter } from "@/src/store/store";
@@ -31,7 +31,7 @@ export const Home: FunctionComponent<IHome> = ({ currentUser }) => {
 
   return (
     <SHome>
-      {!currentUserState && "Welcome Guest"}
+      {!currentUserState && <SimpleCard title={"Welcome guest :)"} text="" />}
       {currentUserState && (
         <SimpleCard
           title={currentUserState.name}

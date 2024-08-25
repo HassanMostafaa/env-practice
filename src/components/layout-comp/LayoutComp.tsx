@@ -1,5 +1,7 @@
 "use client";
 import React, { type PropsWithChildren, type FunctionComponent } from "react";
+import { Nav } from "../nav";
+import { Footer } from "../footer";
 
 export interface ILayoutComp extends PropsWithChildren {}
 
@@ -19,9 +21,9 @@ export const LayoutComp: FunctionComponent<ILayoutComp> = ({ children }) => {
         flexDirection: "column",
       }}
     >
-      <nav>nav</nav>
+      <Nav />
       {children}
-      <footer style={{ marginTop: "auto" }}>footer</footer>
+      <Footer />
     </div>
   );
 };

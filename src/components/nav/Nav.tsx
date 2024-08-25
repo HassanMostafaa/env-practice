@@ -1,12 +1,21 @@
-import React, { type PropsWithChildren, type FunctionComponent } from 'react';
-import { SNav } from './styles/SNav';
+"use client";
+import React, { type FunctionComponent } from "react";
+import styles from "./styles/SNav.module.scss";
+import { useCurrentUser } from "@/src/store/useCurrentUser";
+import Link from "next/link";
 
-export interface INav extends PropsWithChildren {}
+export interface INav {}
 
-export const Nav: FunctionComponent<INav> = ({children}) => {
+export const Nav: FunctionComponent<INav> = ({}) => {
+  const { currentUser } = useCurrentUser();
   return (
-    <SNav>
-      {children}
-    </SNav>
-  )
-}
+    <nav className={styles.nav}>
+      {currentUser && <p>{currentUser.name}</p>}
+      <div className={styles.menu}>
+        <Link href="/">Home</Link>
+        <Link href="/">About</Link>
+        <Link href="/">Contacts</Link>
+      </div>
+    </nav>
+  );
+};

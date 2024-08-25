@@ -1,4 +1,4 @@
-import { IGenUser } from "@/json-server-db/types";
+import { IGenUser } from "@/json-server-db/db-types";
 
 // FROM SESSION LIKE PROCESS WE GET THE CURRENT USER ID TO BE 1
 const currentUserId: IGenUser["id"] = 1;
