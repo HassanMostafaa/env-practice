@@ -10,7 +10,7 @@ export const SSimpleCard = styled.div`
   border-right: 6px solid teal;
   border-bottom: 6px solid teal;
   color: rgb(var(--foreground-rgb));
-  max-width: 500px;
+  max-width: 350px;
   z-index: 2;
   border-radius: 10px;
 `;
