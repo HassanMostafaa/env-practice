@@ -7,14 +7,22 @@ import Link from "next/link";
 export interface INav {}
 
 export const Nav: FunctionComponent<INav> = ({}) => {
-  const { currentUser } = useCurrentUser();
+  const { currentUser, deleteCurrentUser } = useCurrentUser();
+  const logout = () => {
+    deleteCurrentUser();
+  };
   return (
     <nav className={styles.nav}>
-      {currentUser && <p>{currentUser.name}</p>}
+      {currentUser ? <p>{currentUser.name}</p> : <p>Welcome Guest</p>}
       <div className={styles.menu}>
         <Link href="/">Home</Link>
         <Link href="/">About</Link>
         <Link href="/">Contacts</Link>
+        {currentUser && (
+          <button className={styles.logout} onClick={logout}>
+            Logout
+          </button>
+        )}
       </div>
     </nav>
   );

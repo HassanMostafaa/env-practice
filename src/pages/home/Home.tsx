@@ -25,20 +25,14 @@ export const Home: FunctionComponent<IHome> = ({ currentUser }) => {
     }
   }, [currentUser, setCurrentUser, deleteCurrentUser]);
 
-  const logout = () => {
-    deleteCurrentUser();
-  };
-
   return (
     <SHome>
-      {!currentUserState && <SimpleCard title={"Welcome guest :)"} text="" />}
       {currentUserState && (
         <SimpleCard
           title={currentUserState.name}
           text={currentUserState.email}
         />
       )}
-      {currentUserState && <button onClick={logout}>Logout</button>}
     </SHome>
   );
 };

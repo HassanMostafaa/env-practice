@@ -7,8 +7,6 @@ export const SSimpleCard = styled.div`
   background-color: var(--glass);
   backdrop-filter: blur(4px);
   box-shadow: 0px 0px 25px #00000020;
-  border-right: 6px solid teal;
-  border-bottom: 6px solid teal;
   color: rgb(var(--foreground-rgb));
   max-width: 350px;
   z-index: 2;
